@@ -47,7 +47,7 @@ final class Container implements ContainerInterface
     private function updateDependencyMap($name)
     {
         $dependencyName = $this->getDependencyName($name);
-        $this->prepareDependencyMap($name, $dependencyName);
+        $this->prepareDependencyMap($name);
         if ($name !== $dependencyName
             && !in_array($name, $this->dependencyMap[$dependencyName])
         ) {
@@ -64,14 +64,10 @@ final class Container implements ContainerInterface
         return $result;
     }
 
-    private function prepareDependencyMap($name, $dependencyName)
+    private function prepareDependencyMap($name)
     {
-        if (!array_key_exists($dependencyName, $this->dependencyMap)) {
-            $this->dependencyMap[$dependencyName] = [];
-        } else {
-            if (!array_key_exists($name, $this->dependencyMap)) {
-                $this->dependencyMap[$name] = [];
-            }
+        if (!array_key_exists($name, $this->dependencyMap)) {
+            $this->dependencyMap[$name] = [];
         }
     }
 
