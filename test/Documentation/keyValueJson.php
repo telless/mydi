@@ -9,4 +9,4 @@ $container = new Container($json);
 assertSame('some string', $container->get('string'));
 assertSame(null, $container->get('null'));
 assertSame(15, $container->get('int'));
-assertSame('value1', ($container->get('arrayWithKeyString'))['key1']);
+assertSame('value1', $container->get('arrayWithKeyString')['key1']);
